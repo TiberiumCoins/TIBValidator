@@ -22,8 +22,8 @@ module.exports = function (opts = {}) {
   app.use(coins({
     handlers: {
       oracleTx: OracleTx({
-        oraclePubkey: '',
-        foundersAddress: '',
+        oraclePubkey: '0259dc67fbb241d8c4b099704220502fee148afdeacea0504482b4bd14fa6e6523',
+        foundersAddress: 'BFaoFeHNCcrczFyvaEWpZ7EBAbNEewGzC',
         foundersPercent: 1
       })
     }
