@@ -18,7 +18,7 @@ module.exports = function ({ perValidatorPerBlock }) {
           }
         }
 	  var value = perValidatorPerBlock * chainInfo.validators[pubkey]
-	  var maxValue = 0.25 * 1e8;
+	  var maxValue = 0.00016 * 1e8;
 	  state.accounts[address].balance += value > maxValue ? maxValue : value;
         console.log("New block made! Validator " + address + " balance: " + (state.accounts[address].balance / 1e8));
       }
