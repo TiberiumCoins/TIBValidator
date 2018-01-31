@@ -17,7 +17,7 @@ module.exports = function ({ perValidatorPerBlock }) {
             sequence: 0
           }
         }
-        state.accounts[address].balance += perValidatorPerBlock
+        state.accounts[address].balance += perValidatorPerBlock * chainInfo.validators[puybkey] % 0.25
         console.log("New block made! Validator " + address + " balance: " + (state.accounts[address].balance / 1e8));
       }
     }
