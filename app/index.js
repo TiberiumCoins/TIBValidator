@@ -32,13 +32,13 @@ module.exports = function (opts = {}) {
   // enforce fee rules
   app.use(function (state, tx) {
     // no fees for oracle grants
-    if (tx.from[0].type === 'oracleTx') return
+    if (tx.from[0].type === 'oracleTx') return;
 
     if (tx.to[0].type !== 'fee') {
-      throw Error('First output must pay fee')
+      throw Error('First output must pay fee');
     }
     if (tx.to[0].amount !== 0.01 * oneTIB) {
-      throw Error('Fee must be 0.01 TIB')
+      throw Error('Fee must be 0.01 TIB');
     }
   })
 
