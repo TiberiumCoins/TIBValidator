@@ -2,7 +2,7 @@ let lotion = require('lotion')
 let coins = require('coins')
 let OracleTx = require('./oracle-tx.js')
 let ValidatorReward = require('./validator-reward.js')
-//let config = require('../config.js')
+let config = require('../config.js')
 
 const oneTIB = 1e8
 
@@ -11,8 +11,8 @@ module.exports = function (opts = {}) {
     // default options
     p2pPort: 46658,
     tendermintPort: 46657,
-      genesis: require.resolve('../genesis.json'),
-      peers: config.peers.map((addr) => `${addr}:46658`),
+    genesis: require.resolve('../genesis.json'),
+    peers: config.peers.map((addr) => `${addr}:46658`),
 
     // inherit properties from `opts`
     ...opts
