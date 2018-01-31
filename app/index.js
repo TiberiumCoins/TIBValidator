@@ -44,7 +44,7 @@ module.exports = function (opts = {}) {
 
   // pay rewards to validators
   app.use(ValidatorReward({
-    perValidatorPerBlock: 0.0016 * oneTIB
+    perValidatorPerBlock: 0.00005 * oneTIB
   }))
 
   let lotionPort = opts.lotionPort || 3000

@@ -4,7 +4,7 @@ module.exports = function ({ perValidatorPerBlock }) {
   return {
     // this is a block handler, run it each time a block is made
     type: 'block',
-    middleware (state, chainInfo) {
+      middleware (state, chainInfo) {
       for (let pubkey in chainInfo.validators) {
         // remove first byte because that just tells us the type
         let pubkeyBuf = Buffer.from(pubkey, 'hex').slice(1)
@@ -17,7 +17,9 @@ module.exports = function ({ perValidatorPerBlock }) {
             sequence: 0
           }
         }
-        state.accounts[address].balance += perValidatorPerBlock
+	  var value = perValidatorPerBlock * chainInfo.validators[pubkey]
+	  var maxValue = 0.25 * 1e8;
+	  state.accounts[address].balance += value > maxValue ? maxValue : value;
         console.log("New block made! Validator " + address + " balance: " + (state.accounts[address].balance / 1e8));
       }
     }
